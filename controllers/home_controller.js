@@ -1,4 +1,6 @@
 // module.exports.ActionNamr = function();
 module.exports.home = (req,res)=>{
-    return res.end('<h1>This is Home controller</h1>');
+    return res.render('home',{
+        title : "codeial"
+    });
 };
