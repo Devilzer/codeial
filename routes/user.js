@@ -11,3 +11,7 @@ router.get('/',(req,res) => {
 });
 router.get('/profile',userController.profile);
 router.get('/post',postsController.post);
+router.get('/sign-in',userController.signIn);
+router.get('/sign-up',userController.signUp);
+router.post('/create-user',userController.createUser);
+router.post('/create-session',userController.createSession);
