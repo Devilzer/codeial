@@ -1,11 +1,17 @@
 const User = require('../models/user');
 
+//render profile page
 module.exports.profile = (req,res)=>{
-    return res.end('<h1>Profile page of User</h1>');
+    return res.render('profile',{
+        title:"Codiel | Profile"
+    });
 };
 
 //render user signin page
 module.exports.signIn = (req,res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('profile');
+    }
     return res.render('user_sign_in',{
         title:"Codiel | SignIN"
     });
@@ -13,6 +19,9 @@ module.exports.signIn = (req,res)=>{
 
 //render user sign up page
 module.exports.signUp = (req,res)=>{
+    if(req.isAuthenticated()){
+        return res.redirect('profile');
+    }
     return res.render('user_sign_up',{
         title:"Codiel | SignUP"
     });
@@ -48,7 +57,12 @@ module.exports.createUser = (req,res)=>{
 //sign in function
 module.exports.createSession = (req,res)=>{
 
-   return res.redirect('user/profile');
+   return res.redirect('/user/profile');
     
     
+};
+// sign-out function
+module.exports.terminateSession = (req,res)=>{
+    req.logout();
+    return res.redirect('/');
 };
