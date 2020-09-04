@@ -2,3 +2,25 @@
     <h1>
         HomePage
     </h1>
+    <section>
+        <h4>
+            Posts
+        </h4>
+        <form action="/posts/create" id="new-post-form" method="post">
+            <textarea name="content" cols="30" rows="3" placeholder="Type Something......"></textarea>
+            <input type="submit" value="post">
+        </form>
+        <div id="Posts-list-container">
+            <ul>
+                <% for(post of posts){ %>
+                    <li>
+                        <h3>
+                            <%= post.content %> 
+                        </h3>
+                            <small><%=post.user.name%></small>
+                        
+                    </li>
+                 <%} %> 
+            </ul>
+        </div>
+    </section>
