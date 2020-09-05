@@ -8,7 +8,13 @@ const postSchema = new mongoose.Schema({
     user:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    comments:[{ //loading array of coments
+        type: mongoose.Schema.Types.ObjectId,   //todo C small 
+        ref: 'Comment'
     }
+    ]
+    
 },{
         timestamps: true
     }
