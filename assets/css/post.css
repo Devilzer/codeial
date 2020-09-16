@@ -1,0 +1,8 @@
+#Posts-list-container ul {
+  list-style-type: none; }
+  #Posts-list-container ul li {
+    margin-left: 5px;
+    margin-bottom: 15px; }
+    #Posts-list-container ul li a {
+      text-decoration: none;
+      color: #cd0a0a; }

@@ -1,0 +1,13 @@
+#Posts-list-container {
+  ul {
+    list-style-type: none;
+    li {
+      margin-left: 5px;
+      margin-bottom: 15px;
+      a {
+        text-decoration: none;
+        color: #cd0a0a;
+      }
+    }
+  }
+}
