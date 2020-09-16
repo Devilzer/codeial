@@ -1,17 +1,14 @@
 <footer>
-    <p>
-        Created by D.J
-    </p>
-    <ul>
-        <li>
-            <a href="/">
-                Home
-            </a>
-        </li>
-        <li>
-            <a href="/user/profile">
-                Profile
-            </a>
-        </li>
-    </ul>
+  <p>Created by D.J</p>
+  <ul>
+    <% if(title!= "Codeial | Home") {%>
+    <li>
+      <a href="/"> Home </a>
+    </li>
+    <% } %> <% if(locals.user && title != "User Profile") {%>
+    <li>
+      <a href="/user/profile/<%= locals.user.id %> "> Profile </a>
+    </li>
+    <% } %>
+  </ul>
 </footer>
