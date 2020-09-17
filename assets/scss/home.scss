@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: row;
   #posts-container {
+    min-height: 100vh;
     width: 70%;
     padding: 10px;
     border-right: 1px solid grey;

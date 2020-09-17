@@ -12,10 +12,12 @@ module.exports.create = async (req, res) => {
       });
       post.comments.push(comment);
       post.save();
+      req.flash("info", "Comment added!");
       return res.redirect("/");
     }
   } catch (error) {
-    console.log("error in comment control create", error);
+    req.flash("error", error);
+    return res.redirect("back");
   }
 };
 
@@ -29,11 +31,13 @@ module.exports.destroy = async (req, res) => {
       await Post.findByIdAndUpdate(postId, {
         $pull: { comments: req.params.id },
       });
+      req.flash("warning", "Comment deleted!");
       return res.redirect("back");
     } else {
       return res.redirect("back");
     }
   } catch (error) {
-    console.log("error in comment control destroy", error);
+    req.flash("error", error);
+    return res.redirect("back");
   }
 };

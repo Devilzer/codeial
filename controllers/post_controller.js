@@ -7,9 +7,11 @@ module.exports.create = async (req, res) => {
       content: req.body.content,
       user: req.user._id,
     });
+    req.flash("info", "Post Created!");
     return res.redirect("back");
   } catch (error) {
-    console.log("error in post control create", error);
+    req.flash("error", error);
+    return res.redirect("back");
   }
 };
 
@@ -20,11 +22,13 @@ module.exports.destroy = async (req, res) => {
     if (post.user == req.user.id) {
       post.remove();
       await Comment.deleteMany({ post: req.params.id });
+      req.flash("warning", "Post and associated comments deleted!");
       return res.redirect("back");
     } else {
       return res.redirect("back");
     }
   } catch (error) {
-    console.log("error in post control destroy", error);
+    req.flash("error", error);
+    return res.redirect("back");
   }
 };

@@ -1,18 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <link rel="stylesheet" href="/css/layout.css">
-    <%- style %> 
-</head>
-<body>
-<%- include('_header'); %>
-    <section id="main_body">
-        <%- body %>    
-    </section>
-<%- include('_footer'); -%>
-<%- script %>
-</body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <%- style %>
+  </head>
+  <body>
+    <%- include('_header'); %>
+    <section id="main_body"><%- body %></section>
+    <%- include('_footer'); -%> <%- script %>
+
+    <script>
+        <% if(flash.success && flash.success.length>0){%>
+          new Noty({
+            theme:'metroui',
+            text:"<%= flash.success%>",
+            type: 'success',
+            layout:'topRight',
+            timeout: 750
+          }).show();
+      <% } %>
+      <% if(flash.error && flash.error.length>0){%>
+          new Noty({
+            theme:'relax',
+            text:"<%= flash.error%>",
+            type: 'error',
+            layout:'topRight',
+            timeout: 750
+          }).show();
+      <% } %>
+      <% if(flash.warning && flash.warning.length>0){%>
+          new Noty({
+            theme:'relax',
+            text:"<%= flash.warning%>",
+            type: 'warning',
+            layout:'topRight',
+            timeout: 750
+          }).show();
+      <% } %>
+      <% if(flash.info && flash.info.length>0){%>
+          new Noty({
+            theme:'relax',
+            text:"<%= flash.info%>",
+            type: 'info',
+            layout:'topRight',
+            timeout: 750
+          }).show();
+      <% } %>
+    </script>
+  </body>
 </html>

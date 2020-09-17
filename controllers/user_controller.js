@@ -66,10 +66,12 @@ module.exports.createUser = (req, res) => {
 
 //sign in function
 module.exports.createSession = (req, res) => {
+  req.flash("success", "Signed In successfully");
   return res.redirect("/");
 };
 // sign-out function
 module.exports.terminateSession = (req, res) => {
   req.logout();
+  req.flash("success", "Signed Out successfully");
   return res.redirect("/");
 };
