@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="/css/layout.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <%- style %>
   </head>
   <body>
@@ -29,7 +30,7 @@
       <% } %>
       <% if(flash.error && flash.error.length>0){%>
           new Noty({
-            theme:'relax',
+            theme:'metroui',
             text:"<%= flash.error%>",
             type: 'error',
             layout:'topRight',
@@ -38,7 +39,7 @@
       <% } %>
       <% if(flash.warning && flash.warning.length>0){%>
           new Noty({
-            theme:'relax',
+            theme:'metroui',
             text:"<%= flash.warning%>",
             type: 'warning',
             layout:'topRight',
@@ -47,7 +48,7 @@
       <% } %>
       <% if(flash.info && flash.info.length>0){%>
           new Noty({
-            theme:'relax',
+            theme:'metroui',
             text:"<%= flash.info%>",
             type: 'info',
             layout:'topRight',
