@@ -36,6 +36,9 @@ app.set("layout extractScripts", true);
 //setting up static files routes
 app.use(express.static("./assets"));
 
+//make the upload path avaiable to the browser
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
 //setting up view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
