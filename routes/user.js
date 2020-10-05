@@ -5,8 +5,6 @@ const passport = require("passport");
 const userController = require("../controllers/user_controller");
 const postsController = require("../controllers/post_controller");
 
-module.exports = router;
-
 router.get("/", (req, res) => {
   res.end("<h1>This is user controller</h1>");
 });
@@ -27,3 +25,15 @@ router.post(
   passport.authenticate("local", { failureRedirect: "sign-in" }),
   userController.createSession
 );
+
+router.get(
+  "/auth/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google", { failureRedirect: "/user/sign-in" }),
+  userController.createSession
+);
+
+module.exports = router;
